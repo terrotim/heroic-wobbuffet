@@ -9,38 +9,50 @@ redTotal=[]
 blueTotal=[]
 greenTotal=[]
 
+def getStartingScore(numNodes):
+    if numNodes <= 2:
+        return 15000
+    elif 3 <= numNodes <= 4:
+        return 12500
+    elif 5 <= numNodes <= 6:
+        return 10000
+    elif 7 <= numNodes <= 8:
+        return 7500
+    else:
+        return 5000
+
 # Location of the battle areas on the map
 nodeLocations=[
-    [790,1075],
-    [1160,1105],
-    [200,1140],
-    [730,1210],
-    [545,1290],
-    [835,1345],
-    [1155,1360],
-    [360,1375],
-    [940,1480],
-    [660,1500],
-    [125,1505],
-    [410,1585],
-    [1185,1545],
-    [570,1690],
-    [740,1705],
-    [965,1725],
-    [340,1800],
-    [720,1840],
-    [115,1855],
-    [1185,1860],
-    [545,1875],
-    [840,1965],
-    [360,2020],
-    [1135,2040],
-    [890,2110],
-    [110,2125],
-    [1105,2225],
-    [480,2250],
-    [265,2275],
-    [895,2305]
+    [600,1060],
+    [990,1075],
+    [340,1110],
+    [100,1190],
+    [810,1205],
+    [1200,1250],
+    [460,1330],
+    [200,1360],
+    [920,1375],
+    [1130,1490],
+    [470,1570],
+    [815,1580],
+    [160,1625],
+    [755,1760],
+    [505,1770],
+    [1160,1780],
+    [160,1780],
+    [940,1830],
+    [410,1925],
+    [705,1960],
+    [170,2005],
+    [1170,2030],
+    [920,2070],
+    [590,2140],
+    [310,2150],
+    [1170,2240],
+    [80,2260],
+    [640,2310],
+    [370,2315],
+    [950,2315]
     ]
 
 for iteration in range(0,10000):
@@ -48,112 +60,109 @@ for iteration in range(0,10000):
     
     #Battle 1
     edges = [
-        [1,2],[1,4],
-        [2,7],
-        [3,8],[3,11],
-        [4,5],[4,6],
-        [5,8],[5,10],
-        [6,9],
-        [7,9],[7,13],
-        [8,11],
-        [9,16],
-        [10,15],
-        [11,12],
-        [12,14],[12,17],
-        [13,16],
-        [14,15],
-        [15,18],
-        [16,20],[16,22],
-        [17,19],[17,21],
-        [18,21],[18,22],
-        [19,26],
+        [1,2],[1,3],
+        [2,6],
+        [3,4],[3,7],
+        [4,8],
+        [5,9],
+        [6,10],
+        [7,8],[7,11],
+        [8,13],
+        [9,10],[9,12],
+        [10,16],
+        [11,12],[11,15],
+        [12,14],
+        [13,17],
+        [14,18],[14,20],
+        [15,17],[15,19],
+        [16,18],
+        [17,21],
+        [18,23],
+        [19,20],[19,25],
         [20,24],
-        [21,23],
-        [22,25],
-        [23,26],[23,28],
-        [24,25],[24,27],
-        [26,29],
-        [27,30],
-        [28,29],[28,30]
+        [21,27],
+        [22,23],[22,26],
+        [23,24],
+        [24,28],
+        [25,27],[25,29],
+        [26,30],
+        [28,29],[28,30],
         ]
-    hqs = [3,13,29]
-    startingRed = [2,6,7,9,13,16,20,22,24,25]
-    startingBlue = [1,3,4,5,8,10,11,12,14,15]
-    startingGreen = [17,18,19,21,23,26,27,28,29,30]
-    
+    hqs = [6,13,30]
+    startingRed = [1,2,5,6,9,10,12,14,16,18]
+    startingBlue = [19,20,22,23,24,25,26,28,29,30]
+    startingGreen = [3,4,7,8,11,13,15,17,21,27]
     
     """
     #Battle 2
     edges = [
-        [1,3],[1,4],
-        [2,6],[2,7],
+        [1,6],[1,7],
+        [2,3],[2,5],
         [3,8],
         [4,5],[4,6],
-        [5,8],[5,10],
-        [6,9],
-        [7,9],[7,13],
-        [8,11],
-        [9,10],[9,16],
-        [10,12],[10,15],
-        [11,12],
-        [12,14],[12,17],
+        [5,9],
+        [6,11],
+        [7,10],
+        [8,13],[8,16],
+        [9,12],[9,13],
+        [10,11],[10,15],
+        [11,12],[11,14],
         [13,16],
-        [14,21],
-        [15,16],
-        [16,20],[16,22],
-        [17,19],[17,21],
-        [18,21],[18,22],[18,28],
-        [19,23],[19,26],
-        [20,24],
-        [21,23],
-        [22,25],
-        [23,28],
-        [24,25],[24,27],
-        [26,29],
-        [27,30],
-        [28,29]
+        [14,15],[14,17],
+        [15,18],
+        [16,20],[16,21],
+        [17,19],[17,20],
+        [18,22],
+        [19,22],[19,24],
+        [20,23],[20,25],
+        [21,26],
+        [22,28],
+        [23,27],[23,29],
+        [24,27],
+        [25,26],
+        [26,30],
+        [27,28],
+        [29,30],
         ]
-    hqs = [2,26,27]
-    startingRed = [11,12,14,17,19,21,23,26,28,29]
-    startingBlue = [1,2,3,4,5,6,7,8,9,10]
-    startingGreen = [13,15,16,18,20,22,24,25,27,30]
+    hqs = [1,21,28]
+    startingRed = [3,8,13,16,20,21,25,26,29,30]
+    startingBlue = [1,2,4,5,6,7,9,10,11,12]
+    startingGreen = [14,15,17,18,19,22,23,24,27,28]
     """
-    
-    """ 
+    """
     #Battle 3
     edges = [
-        [1,2],[1,4],
-        [2,6],[2,7],
-        [3,5],[3,8],[3,11],
+        [1,6],[1,7],
+        [2,3],[2,4],
+        [3,8],
         [4,5],[4,6],
-        [5,8],[5,10],
-        [6,9],[6,10],
-        [7,9],
-        [8,12],
-        [9,13],[9,16],
-        [10,12],[10,14],[10,15],
-        [11,12],
-        [12,17],
-        [13,16],[13,20],
-        [14,15],[14,21],
-        [15,16],[15,18],
-        [16,20],[16,22],
-        [17,19],[17,21],
-        [18,21],[18,22],
-        [19,23],
-        [20,24],
-        [21,23],
-        [22,25],
-        [23,25],[23,26],[23,28],
-        [25,27],[25,28],
-        [26,29],
-        [27,30],
-        [28,29],[28,30]
+        [5,9],
+        [6,11],
+        [7,10],
+        [8,9],[8,16],
+        [9,12],
+        [10,11],[10,15],
+        [11,14],
+        [12,13],[12,17],[12,20],
+        [13,21],
+        [14,15],[14,17],
+        [15,18],
+        [16,21],
+        [17,19],[17,20],
+        [18,19],[18,22],
+        [20,23],[20,25],
+        [21,26],
+        [22,24],[22,28],
+        [23,24],[23,29],
+        [25,26],
+        [26,30],
+        [27,28],[27,29],
+        [29,30],
         ]
-    hqs = [7,11,30]
-    startingRed = [1,2,4,5,6,7,9,10,15,16]
-    startingBlue = [13,18,20,22,24,25,27,28,29,30]
-    startingGreen = [3,8,11,12,14,17,19,21,23,26]
+    hqs = [3,7,27]
+    startingRed = [2,3,4,5,8,9,12,13,16,21]
+    startingBlue = [1,6,7,10,11,14,15,17,18,19]
+    startingGreen = [20,22,23,24,25,26,27,28,29,30]
     """
     
     colors = {0:'red',1:'blue',2:'green'}
@@ -228,7 +237,7 @@ for iteration in range(0,10000):
         #Assign reds
         for s in range(0,200):
             #Chance that the soldier actually plays
-            if random.randint(1, 6)==6:
+            if random.randint(1, 8)==8:
                 target = random.sample(battlingRed,1)[0]
                 targetNode = next((x for x in nodes if x['id'] == target),None)
                 #How much stamina used in the battle
@@ -253,7 +262,7 @@ for iteration in range(0,10000):
         #Assign blues
         for s in range(0,200):
             #Chance that the soldier actually plays
-            if random.randint(1, 6)==6 :
+            if random.randint(1, 8)==8 :
                 target = random.sample(battlingBlue,1)[0]
                 targetNode = next((x for x in nodes if x['id'] == target),None)
                 #How much stamina used in the battle
@@ -275,7 +284,7 @@ for iteration in range(0,10000):
         #Assign greens
         for s in range(0,200):
             #Chance that the soldier actually plays
-            if random.randint(1, 6)==6 :
+            if random.randint(1, 8)==8 :
                 target = random.sample(battlingGreen,1)[0]
                 targetNode = next((x for x in nodes if x['id'] == target),None)
                 #How much stamina used in the battle
@@ -294,17 +303,37 @@ for iteration in range(0,10000):
                     splashNode = next((x for x in nodes if x['id'] == node),None)
                     splashNode["soldiers"]["green"] += score/2
 
-                    
+        numRed=0
+        numBlue=0
+        numGreen=0     
         # End of round. Assess scenario and change node colors accordingly
         for node in nodes:
             node['color']=(max(node['soldiers'], key=node['soldiers'].get))
             #Reset nodes to appropriate starting score
             if node['color']=='red':
-                node['soldiers']={"red":5000,"blue":0,"green":0}
+                numRed += 1
             elif node['color']=='blue':
-                node['soldiers']={"red":0,"blue":5000,"green":0}
+                numBlue += 1
             else:
-                node['soldiers']={"red":0,"blue":0,"green":5000}
+                numGreen += 1
+                
+        #TODO dynamic starting score depending on how many nodes a team has left
+        
+
+        redStartingScore = getStartingScore(numRed)
+        blueStartingScore = getStartingScore(numBlue)
+        greenStartingScore = getStartingScore(numGreen)
+        
+        for node in nodes:
+            #Reset nodes to appropriate starting score
+            if node['color']=='red':
+                node['soldiers']={"red":redStartingScore,"blue":0,"green":0}
+            elif node['color']=='blue':
+                node['soldiers']={"red":0,"blue":blueStartingScore,"green":0}
+            else:
+                node['soldiers']={"red":0,"blue":0,"green":greenStartingScore}
+        
+        
         # Repeat for 22 rounds.
 
     
@@ -343,7 +372,7 @@ for areas in overallMap:
     fig1, ax1 = plt.subplots()
     ax1.pie(areas,colors=colors,startangle=90)
     ax1.axis('equal')
-    plt.suptitle(areaNum, fontsize=36)
+    plt.suptitle(areaNum, fontsize=72)
     plt.tight_layout()
     plt.savefig('area_'+str(areaNum)+'.png')
     areaNum += 1
