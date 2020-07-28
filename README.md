@@ -1,5 +1,5 @@
 ## GC Simulation
-Simulates 10000 rounds of Grand Conquest, given the controlled nodes and the edges available, and generates the average number of nodes controlled by each team at the end.
+Simulates 10000 rounds of Fire Emblem Heroes Grand Conquest game mode, given the controlled nodes and the edges available, and generates the average number of nodes controlled by each team at the end of the round.
 
 
 ### New:
